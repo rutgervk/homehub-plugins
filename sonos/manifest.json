@@ -1,0 +1,16 @@
+{
+  "id": "sonos",
+  "name": "Sonos",
+  "version": "1.0.0",
+  "description": "Sonos-spelers op het thuisnetwerk, zonder cloud: afspelen, pauze, volgende/vorige, volume, wat er speelt en je Sonos-favorieten.",
+  "author": "rutgervk",
+  "main": "main.js",
+  "minHub": 1,
+  "permissions": ["http", "udp"],
+  "provides": ["media_player"],
+  "settings": [
+    { "key": "hosts", "label": "IP-adres(sen) van een speler", "type": "text", "default": "",
+      "help": "Leeg laten = automatisch zoeken. Eén adres is genoeg; de andere kamers worden via die speler gevonden." },
+    { "key": "interval", "label": "Verversen elke (seconden)", "type": "number", "default": 3 }
+  ]
+}

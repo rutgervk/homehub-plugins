@@ -1,0 +1,24 @@
+{
+  "id": "ha_bridge",
+  "name": "Home Assistant-brug",
+  "version": "1.0.0",
+  "description": "Neemt entiteiten over van een bestaande Home Assistant-server en stuurt bediening door. Alles wat HA al kan werkt zo direct in HomeHub; niet nodig als je alleen eigen plugins gebruikt.",
+  "author": "rutgervk",
+  "main": "main.js",
+  "minHub": 1,
+  "mirror": true,
+  "permissions": ["http"],
+  "provides": ["light", "switch", "cover", "climate", "media_player", "sensor", "todo"],
+  "settings": [
+    { "key": "url", "label": "Adres van Home Assistant", "type": "text", "default": "",
+      "help": "Bijvoorbeeld http://homeassistant.local:8123" },
+    { "key": "token", "label": "Long-lived access token", "type": "password", "default": "",
+      "help": "In Home Assistant: je profiel → Beveiliging → Long-lived access tokens." },
+    { "key": "include", "label": "Overnemen", "type": "text",
+      "default": "light,switch,cover,climate,media_player,todo,weather,person",
+      "help": "Komma-gescheiden: een domein (light), een id (sensor.woonkamer_temp) of een begin met * (sensor.growatt*). Leeg = alles." },
+    { "key": "exclude", "label": "Niet overnemen", "type": "text", "default": "",
+      "help": "Zelfde notatie; wint van 'Overnemen'." },
+    { "key": "interval", "label": "Verversen elke (seconden)", "type": "number", "default": 5 }
+  ]
+}

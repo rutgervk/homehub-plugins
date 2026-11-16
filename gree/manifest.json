@@ -1,0 +1,16 @@
+{
+  "id": "gree",
+  "name": "Gree-airco",
+  "version": "1.0.0",
+  "description": "Airco's van Gree en verwante merken (Tosot, Cooper & Hunter, Sinclair…) lokaal via wifi, zonder cloud: aan/uit, stand, doeltemperatuur, ventilator en gemeten kamertemperatuur.",
+  "author": "rutgervk",
+  "main": "main.js",
+  "minHub": 1,
+  "permissions": ["udp"],
+  "provides": ["climate"],
+  "settings": [
+    { "key": "host", "label": "IP-adres van de airco", "type": "text", "default": "",
+      "help": "Leeg laten = automatisch zoeken op het netwerk (vindt ook meerdere airco's)." },
+    { "key": "interval", "label": "Verversen elke (seconden)", "type": "number", "default": 15 }
+  ]
+}

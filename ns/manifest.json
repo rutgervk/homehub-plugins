@@ -1,0 +1,25 @@
+{
+  "id": "ns",
+  "name": "NS-treinen",
+  "version": "1.0.0",
+  "description": "Reizen van het komende uur per traject via de NS-reisplanner, inclusief overstappen, vertraging en spoor.",
+  "author": "rutgervk",
+  "main": "main.js",
+  "minHub": 1,
+  "permissions": ["http"],
+  "provides": ["sensor"],
+  "settings": [
+    { "key": "api_key", "label": "NS API-key", "type": "password", "default": "",
+      "help": "Gratis via apiportal.ns.nl: account maken → Products → Ns-App → subscribe → primary key." },
+    { "key": "routes", "label": "Trajecten", "type": "list", "default": [],
+      "help": "Stationsnaam (Amsterdam Centraal) of -code (ASD, HIL). De naam op de kaart is optioneel.",
+      "fields": [
+        { "key": "from", "label": "Van", "type": "text" },
+        { "key": "to", "label": "Naar", "type": "text" },
+        { "key": "name", "label": "Naam op de kaart", "type": "text" }
+      ] },
+    { "key": "window", "label": "Toon reizen binnen (minuten)", "type": "number", "default": 60 },
+    { "key": "max", "label": "Maximaal aantal reizen per traject", "type": "number", "default": 6 },
+    { "key": "interval", "label": "Verversen elke (seconden)", "type": "number", "default": 90 }
+  ]
+}

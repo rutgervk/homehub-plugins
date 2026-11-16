@@ -2,6 +2,72 @@
   "name": "HomeHub plugins",
   "plugins": [
     {
+      "id": "gree",
+      "name": "Gree-airco",
+      "version": "1.0.0",
+      "description": "Airco's van Gree en verwante merken (Tosot, Cooper & Hunter, Sinclair…) lokaal via wifi, zonder cloud: aan/uit, stand, doeltemperatuur, ventilator en gemeten kamertemperatuur.",
+      "provides": [
+        "climate"
+      ],
+      "path": "gree"
+    },
+    {
+      "id": "growatt",
+      "name": "Growatt-zonnepanelen",
+      "version": "1.0.0",
+      "description": "Huidig vermogen en opbrengst van een Growatt-omvormer via je Growatt-account (ShinePhone). Bruikbaar in regels, bijvoorbeeld voor airco of zonnescherm.",
+      "provides": [
+        "sensor"
+      ],
+      "path": "growatt"
+    },
+    {
+      "id": "ha_bridge",
+      "name": "Home Assistant-brug",
+      "version": "1.0.0",
+      "description": "Neemt entiteiten over van een bestaande Home Assistant-server en stuurt bediening door. Alles wat HA al kan werkt zo direct in HomeHub; niet nodig als je alleen eigen plugins gebruikt.",
+      "provides": [
+        "light",
+        "switch",
+        "cover",
+        "climate",
+        "media_player",
+        "sensor",
+        "todo"
+      ],
+      "path": "ha_bridge"
+    },
+    {
+      "id": "motionblinds",
+      "name": "Motionblinds / Brel",
+      "version": "1.0.0",
+      "description": "Zonneschermen, rolluiken en gordijnen van Motionblinds-merken (Brel Home, Bloc, Dooya…) lokaal via de bridge: open, dicht, stop en positie.",
+      "provides": [
+        "cover"
+      ],
+      "path": "motionblinds"
+    },
+    {
+      "id": "ns",
+      "name": "NS-treinen",
+      "version": "1.0.0",
+      "description": "Reizen van het komende uur per traject via de NS-reisplanner, inclusief overstappen, vertraging en spoor.",
+      "provides": [
+        "sensor"
+      ],
+      "path": "ns"
+    },
+    {
+      "id": "sonos",
+      "name": "Sonos",
+      "version": "1.0.0",
+      "description": "Sonos-spelers op het thuisnetwerk, zonder cloud: afspelen, pauze, volgende/vorige, volume, wat er speelt en je Sonos-favorieten.",
+      "provides": [
+        "media_player"
+      ],
+      "path": "sonos"
+    },
+    {
       "id": "weather",
       "name": "Weer",
       "version": "1.0.0",

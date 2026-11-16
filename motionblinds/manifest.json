@@ -1,0 +1,26 @@
+{
+  "id": "motionblinds",
+  "name": "Motionblinds / Brel",
+  "version": "1.0.0",
+  "description": "Zonneschermen, rolluiken en gordijnen van Motionblinds-merken (Brel Home, Bloc, Dooya…) lokaal via de bridge: open, dicht, stop en positie.",
+  "author": "rutgervk",
+  "main": "main.js",
+  "minHub": 1,
+  "permissions": ["udp"],
+  "provides": ["cover"],
+  "settings": [
+    { "key": "key", "label": "Sleutel", "type": "password", "default": "",
+      "help": "In de Brel Home/Motionblinds-app: Instellingen → Over → 5× snel op het scherm tikken. 16 tekens, bijv. 12ab345c-d67e-8f." },
+    { "key": "host", "label": "IP-adres van de bridge", "type": "text", "default": "",
+      "help": "Leeg laten = automatisch zoeken op het netwerk." },
+    { "key": "invert", "label": "Omhoog en omlaag omdraaien", "type": "bool", "default": false,
+      "help": "Zet aan als 'open' het scherm juist uitrolt." },
+    { "key": "names", "label": "Eigen namen", "type": "list", "default": [],
+      "help": "Optioneel. Laatste 4 tekens van het adres (staat bij de entiteit) en de gewenste naam.",
+      "fields": [
+        { "key": "mac", "label": "Laatste 4 tekens", "type": "text" },
+        { "key": "name", "label": "Naam", "type": "text" }
+      ] },
+    { "key": "interval", "label": "Stand ophalen elke (seconden)", "type": "number", "default": 60 }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "growatt",
+  "name": "Growatt-zonnepanelen",
+  "version": "1.0.0",
+  "description": "Huidig vermogen en opbrengst van een Growatt-omvormer via je Growatt-account (ShinePhone). Bruikbaar in regels, bijvoorbeeld voor airco of zonnescherm.",
+  "author": "rutgervk",
+  "main": "main.js",
+  "minHub": 1,
+  "permissions": ["http"],
+  "provides": ["sensor"],
+  "settings": [
+    { "key": "username", "label": "Gebruikersnaam", "type": "text", "default": "",
+      "help": "Dezelfde als in de ShinePhone-app." },
+    { "key": "password", "label": "Wachtwoord", "type": "password", "default": "" },
+    { "key": "token", "label": "API-token (in plaats van wachtwoord)", "type": "password", "default": "",
+      "help": "Optioneel. Alleen nodig als inloggen met wachtwoord wordt geweigerd: ShinePhone → Ik → instellingen → API-token." },
+    { "key": "server", "label": "Server", "type": "select", "default": "https://openapi.growatt.com",
+      "options": [
+        { "value": "https://openapi.growatt.com", "label": "Europa / wereld" },
+        { "value": "https://openapi-us.growatt.com", "label": "Noord-Amerika" },
+        { "value": "https://openapi-cn.growatt.com", "label": "China" }
+      ] },
+    { "key": "interval", "label": "Verversen elke (minuten)", "type": "number", "default": 5 }
+  ]
+}
