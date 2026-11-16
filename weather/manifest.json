@@ -1,0 +1,16 @@
+{
+  "id": "weather",
+  "name": "Weer",
+  "version": "1.0.0",
+  "description": "Weerbericht via Open-Meteo en buienverwachting via Buienradar. Geen account nodig.",
+  "author": "rutgervk",
+  "main": "main.js",
+  "minHub": 1,
+  "permissions": ["http"],
+  "provides": ["weather"],
+  "settings": [
+    { "key": "place", "label": "Plaats", "type": "text", "default": "",
+      "help": "Leeg laten = de locatie van de hub (Instellingen → Hub)." },
+    { "key": "rain", "label": "Buienverwachting tonen (Buienradar, NL/BE)", "type": "bool", "default": true }
+  ]
+}

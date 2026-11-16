@@ -1,0 +1,15 @@
+{
+  "name": "HomeHub plugins",
+  "plugins": [
+    {
+      "id": "weather",
+      "name": "Weer",
+      "version": "1.0.0",
+      "description": "Weerbericht via Open-Meteo en buienverwachting via Buienradar. Geen account nodig.",
+      "provides": [
+        "weather"
+      ],
+      "path": "weather"
+    }
+  ]
+}
