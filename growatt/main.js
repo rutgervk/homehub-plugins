@@ -38,6 +38,12 @@ function login() {
     method: 'POST', url: SERVER + '/newTwoLoginAPI.do', headers: AGENT,
     form: { userName: String(cfg.username || '').trim(), password: hashPassword(String(cfg.password || '')) }
   });
+  if (r.status === 403) {
+    var err = new Error('Growatt weigert inloggen met wachtwoord voor apps van derden (HTTP 403). ' +
+      'Vul in de instellingen een API-token in (ShinePhone → Ik → instellingen → API-token).');
+    err.blocked = true;
+    throw err;
+  }
   if (!r.ok) throw new Error('inloggen: HTTP ' + r.status);
   var back;
   try { back = r.json().back; } catch (e) { throw new Error('inloggen: onverwacht antwoord van Growatt'); }
@@ -94,8 +100,10 @@ function sensor(id, name, value, unit, deviceClass, stateClass, extra) {
 }
 
 var failures = 0;
+var blocked = false; // wachtwoord-login dichtgezet: niet elke paar minuten opnieuw proberen
 function refresh() {
   var data;
+  if (blocked) return;
   try {
     if (String(cfg.token || '').trim()) data = readToken();
     else if (cfg.username && cfg.password) data = readClassic();
@@ -104,7 +112,14 @@ function refresh() {
   } catch (e) {
     failures++;
     userId = null;
-    hub.warn('Growatt uitlezen mislukt: ' + e.message);
+    if (e.blocked) {
+      blocked = true;
+      hub.warn(e.message);
+      sensor('sensor.growatt_vermogen', 'Zonvermogen', null, 'W', 'power', 'measurement');
+      return;
+    }
+    // Eerste paar keer melden, daarna nog maar eens per ~uur om het logboek niet vol te schrijven
+    if (failures <= 3 || failures % 12 === 0) hub.warn('Growatt uitlezen mislukt (' + failures + 'x): ' + e.message);
     if (failures >= 3) {
       sensor('sensor.growatt_vermogen', 'Zonvermogen', null, 'W', 'power', 'measurement');
     }
