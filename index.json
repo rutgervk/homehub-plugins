@@ -14,7 +14,7 @@
     {
       "id": "growatt",
       "name": "Growatt-zonnepanelen",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Huidig vermogen en opbrengst van een Growatt-omvormer via je Growatt-account (ShinePhone). Bruikbaar in regels, bijvoorbeeld voor airco of zonnescherm.",
       "provides": [
         "sensor"
